@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: black;
+    font-family: "IBM Plex Mono";
+}
+
+/* For code or monospace text */
+code, pre, .code {
+    font-family: "Times New Roman", Times, serif;
+    font-family: "IBM Plex Mono";
+}
+
+
+/* Specific elements */
+h1, h2, h3, h4, h5, h6 p {
+    font-family: "Times New Roman", Times, serif;
+    font-family: "IBM Plex Mono";
+}
+
+
+
+
+.btlink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding-top: 10rem;    /* Space for background image */
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 60% 60%; /* Adjust size as needed */
+    text-wrap:nowrap;
+    width: max-content;
+}
+
+.mail{
+    background-image: url('../src/mail.png');
+    -webkit-animation: guide 3.6s ease-in-out -1s infinite;
+    -moz-animation: guide 3.6s ease-in-out -1s infinite;
+    -ms-animation: guide 3.6s ease-in-out -1s infinite;
+    -o-animation: guide 3.6s ease-in-out -1s infinite;
+    animation: guide 3.6s ease-in-out -1s infinite;
+}
+
+.book{
+    margin-top: 15rem;
+
+    background-image: url('../src/book.png');
+    -webkit-animation: guide 3.6s ease-in-out -1.2s infinite;
+    -moz-animation: guide 3.6s ease-in-out -1.2s infinite;
+    -ms-animation: guide 3.6s ease-in-out -1.2s infinite;
+    -o-animation: guide 3.6s ease-in-out -1.2s infinite;
+    animation: guide 3.6s ease-in-out -1.2s infinite;
+}
+
+.game{
+    background-image: url('../src/game.png');
+    -webkit-animation: guide 3.6s ease-in-out -1.8s infinite;
+    -moz-animation: guide 3.6s ease-in-out -1.8s infinite;
+    -ms-animation: guide 3.6s ease-in-out -1.8s infinite;
+    -o-animation: guide 3.6s ease-in-out -1.8s infinite;
+    animation: guide 3.6s ease-in-out -1.8s infinite;
+}
+
+
+
+.lantern{
+    margin-top: 10rem;
+    background-image: url('../src/lantern.png');
+    -webkit-animation: guide 3.6s ease-in-out -0.5s infinite;
+    -moz-animation: guide 3.6s ease-in-out -0.5s infinite;
+    -ms-animation: guide 3.6s ease-in-out -0.5s infinite;
+    -o-animation: guide 3.6s ease-in-out -0.5s infinite;
+    animation: guide 3.6s ease-in-out -0.5s infinite;
+}
+
+
+.btlink > p {
+    color: transparent; /* Hide the original text color */
+    background: linear-gradient(to bottom, #808080, #ffffff); /* Gray to white */
+    background-clip: text;
+    -webkit-background-clip: text; /* For Safari/Chrome */
+
+    font-weight: normal;
+    font-size: xx-large;
+    transition: transform 0.3s ease;
+}
+
+
+.mail >p {
+}
+
+.book >p {
+}
+
+
+
+.btlink:hover > p{
+    transform: scale(1.1); /* Rotates 45 degrees clockwise */
+    transition: transform 0.3s ease;
+
+}
+
+.btlink:hover{
+    filter:
+            drop-shadow(0 30px 20px rgba(255, 255, 255, 0.05))      /* Bottom only */
+            drop-shadow(-30px 15px 20px rgba(255, 255, 255, 0.05))  /* Bottom-left */
+            drop-shadow(30px 15px 20px rgba(255, 255, 255, 0.05))   /* Bottom-right */
+            drop-shadow(-30px 0 20px rgba(255, 255, 255, 0.05))     /* Left */
+            drop-shadow(30px 0 20px rgba(255, 255, 255, 0.05));     /* Right */
+
+}
+
+
+
+
+body {
+  background-image: url('../src/bg.jpg');
+  background-repeat: no-repeat;
+}
+
+.conti {
+    padding-top: 20svh;
+    display: flex;
+    flex-direction: row;        /* Default, but explicit */
+    justify-content: center;    /* Centers the buttons horizontally */
+    align-items: center;        /* Aligns buttons vertically */
+    gap: 4rem;                 /* Space between buttons */
+}
+
+.btlink {
+    width: 12svw;
+    aspect-ratio: 1 / 1;  /* Forces 1:1 ratio */
+    /* Add transition for smooth hover effect */
+    transition: transform 0.3s ease;
+}
+
+
+@media (max-width: 860px) {
+    .conti {
+        padding-top: 20svh;
+        display: flex;
+        flex-direction: column;        /* Default, but explicit */
+        justify-content: center;    /* Centers the buttons horizontally */
+        align-items: center;        /* Aligns buttons vertically */
+        gap: 4rem;                 /* Space between buttons */
+    }
+
+    .btlink {
+        width:10rem;
+    }
+
+    .game, .lantern, .book, .mail {
+        margin: 0;  /* Also fixed the syntax here */
+    }
+}
+
