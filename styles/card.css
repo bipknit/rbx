@@ -1,0 +1,118 @@
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+
+:root {
+    --card-height: 85svh;
+    --card-width: 96svw;
+    --border-thickness: 6px; /* control glow border size here */
+}
+
+
+
+
+.hero-container{
+    display: flex;
+    padding-top: 5svh;
+    height: 100svh;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card {
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 3px;
+    position: relative;
+    border-radius: 6px;
+    text-align: left;
+
+    font-size: 1.5em;
+    cursor: pointer;
+    font-family: "IBM Plex Mono";
+    color: white;
+    /* Animation on load */
+    transition: 1s;
+    animation: popIN 1s ease, blurIN 0.5s ease;
+}
+
+.cardda {
+    color: rgb(88 199 250 / 100%);
+}
+
+.card::before {
+    content: "";
+    width: calc(100% + var(--border-thickness) * 2);
+    height: calc(100% + var(--border-thickness) * 2);
+    border-radius: 6px;
+    background-image: linear-gradient(
+            var(--rotate),
+            #5ddcff, #3c67e3 43%, #4e00c2
+    );
+    position: absolute;
+    z-index: -1;
+    top: calc(-1 * var(--border-thickness));
+    left: calc(-1 * var(--border-thickness));
+    animation: blurIN 2.5s linear, spin 2.5s linear infinite;
+    transition: 1s;
+}
+
+.card::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-thickness));
+    left: calc(-1 * var(--border-thickness));
+    z-index: -2;
+    width: calc(100% + var(--border-thickness) * 2);
+    height: calc(100% + var(--border-thickness) * 2);
+    border-radius: 6px;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 2));
+    background-image: linear-gradient(
+            var(--rotate),
+            #5ddcff, #3c67e3 43%, #4e00c2
+    );
+    opacity: 1;
+    animation: blurIN 2.5s linear, spin 2.5s linear infinite;
+    transition: 1s;
+}
+
+@keyframes spin {
+    0% {
+        --rotate: 0deg;
+    }
+    100% {
+        --rotate: 360deg;
+    }
+}
+
+a {
+    color: #212534;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
+@keyframes popIN {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.05); } /* overshoot */
+    100% { transform: scale(1); }
+}
+
+@keyframes blurIN {
+    0% { filter: blur(200px); }
+    50% { filter: blur(20px); }
+    100% { filter : blur(0px); }
+}
+
+
+@keyframes opaIN {
+    0%   { opacity: 0.01; } /* almost invisible */
+    50%  { opacity: 0.5; }  /* half visible */
+    100% { opacity: 1; }    /* fully visible */
+}
